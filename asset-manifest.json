@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/CliftonLandryWebsite/static/css/main.32921601.css",
+    "main.css": "/CliftonLandryWebsite/static/css/main.c0c0e174.css",
     "main.js": "/CliftonLandryWebsite/static/js/main.5c78bccd.js",
     "static/js/787.4ddd9fe9.chunk.js": "/CliftonLandryWebsite/static/js/787.4ddd9fe9.chunk.js",
     "static/media/webdev.svg": "/CliftonLandryWebsite/static/media/webdev.80d48f4797a85962149f7d56a454e535.svg",
     "static/media/cloudBg.png": "/CliftonLandryWebsite/static/media/cloudBg.f28b5c6961fd82be839c.png",
     "static/media/cloudDark.png": "/CliftonLandryWebsite/static/media/cloudDark.51edaa54cabe7b964ae9.png",
     "index.html": "/CliftonLandryWebsite/index.html",
-    "main.32921601.css.map": "/CliftonLandryWebsite/static/css/main.32921601.css.map",
+    "main.c0c0e174.css.map": "/CliftonLandryWebsite/static/css/main.c0c0e174.css.map",
     "main.5c78bccd.js.map": "/CliftonLandryWebsite/static/js/main.5c78bccd.js.map",
     "787.4ddd9fe9.chunk.js.map": "/CliftonLandryWebsite/static/js/787.4ddd9fe9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.32921601.css",
+    "static/css/main.c0c0e174.css",
     "static/js/main.5c78bccd.js"
   ]
 }
