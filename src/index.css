@@ -40,6 +40,6 @@ code {
 .picHeight{
   height: 25em;
   width: 30em;
-  margin: 1em auto 0 auto;
+  margin: 25px auto 0 auto;
   display:block;
 }
