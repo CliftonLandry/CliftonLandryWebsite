@@ -66,7 +66,7 @@ const Home = () => {
                  <a href="https://drive.google.com/file/d/1kbmi_ytQ0j0r8hESkMLqipny0PGQ1551/view?usp=sharing" target="_blank">
                 <div className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-200 md:py-4 md:text-lg md:px-10">               
                   Resume                  
-                    </div>
+                  </div>
                 </a>
               </div>
             </div>
