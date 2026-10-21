@@ -1,0 +1,57 @@
+# Builds the React app and deploys it to GitHub Pages on every push to main.
+# Save this file in your repo at: .github/workflows/deploy.yml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ['main']   # change if your default branch has another name
+  workflow_dispatch:      # adds a "Run workflow" button in the Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      # React Router fix: GitHub Pages serves 404.html for unknown paths,
+      # so a copy of index.html lets deep links like /about load the app.
+      # Delete this step if your site doesn't use React Router.
+      - name: Add SPA fallback
+        run: cp ./dist/index.html ./dist/404.html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: './dist'   # use './build' for Create React App
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
