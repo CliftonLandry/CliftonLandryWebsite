@@ -22,7 +22,7 @@ function Card(name, description, image, link){
    
       <div class="p-5">
         <a href={link}
-          target="_blank">
+          target="_blank" rel="noreferrer">
           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             {name}
           </h5>
@@ -32,7 +32,7 @@ function Card(name, description, image, link){
         </p>
         <a
           href={link}
-          target="_blank"
+          target="_blank" rel="noreferrer"
           class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-200 focus:ring-4 focus:outline-none focus:ring-blue-300"
         >
           Read more

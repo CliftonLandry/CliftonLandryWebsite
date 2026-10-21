@@ -42,7 +42,7 @@ jobs:
       # so a copy of index.html lets deep links like /about load the app.
       # Delete this step if your site doesn't use React Router.
       - name: Add SPA fallback
-        run: cp ./dist/index.html ./dist/404.html
+        run: cp ./build/index.html ./build/404.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v6
@@ -50,7 +50,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: './dist'   # use './build' for Create React App
+          path: './build'
 
       - name: Deploy to GitHub Pages
         id: deployment
