@@ -1,7 +1,16 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useEffect, useReducer } from "react";
 
 export const ThemeContext = createContext();
-const initialState = { darkMode: true };
+
+function getInitialState() {
+  try {
+    const saved = localStorage.getItem("theme");
+    if (saved) return { darkMode: saved === "dark" };
+  } catch (e) {}
+  const prefersLight =
+    window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+  return { darkMode: !prefersLight };
+}
 
 const themeReducer = (state, action) => {
   switch (action.type) {
@@ -15,12 +24,17 @@ const themeReducer = (state, action) => {
 };
 
 export function ThemeProvider(props) {
-  const [state, dispatch] = useReducer(themeReducer, initialState);
+  const [state, dispatch] = useReducer(themeReducer, undefined, getInitialState);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", state.darkMode);
+    try {
+      localStorage.setItem("theme", state.darkMode ? "dark" : "light");
+    } catch (e) {}
+  }, [state.darkMode]);
 
   return (
-    <ThemeContext.Provider
-      value={{ state: false || state, dispatch: dispatch }}
-    >
+    <ThemeContext.Provider value={{ state, dispatch }}>
       {props.children}
     </ThemeContext.Provider>
   );

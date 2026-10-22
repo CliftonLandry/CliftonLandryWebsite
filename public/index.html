@@ -4,25 +4,25 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#0f172a" />
     <meta
     name="description"
-    content="Web site created using create-react-app"
+    content="Clifton Landry, full stack engineer in Boston building enterprise SaaS with Angular, React, C#/.NET, and AWS."
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <script src="https://cdn.rawgit.com/progers/pathseg/master/pathseg.js"></script>
+    <script>
+      // Set the theme before first paint so there's no light/dark flash.
+      (function () {
+        var theme = null;
+        try { theme = localStorage.getItem("theme"); } catch (e) {}
+        var light = theme ? theme === "light" : window.matchMedia("(prefers-color-scheme: light)").matches;
+        if (!light) document.documentElement.classList.add("dark");
+      })();
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              clifford: '#da373d',
-            }
-          }
-        }
-      }
+      tailwind.config = { darkMode: 'class' }
     </script>
     <title>Clifton Landry</title>
   </head>
